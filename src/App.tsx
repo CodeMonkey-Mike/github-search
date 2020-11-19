@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { ApolloProvider } from '@apollo/client';
+import { ThemeName, themes } from './styles/themes';
+import { client } from './helper/apollo';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyle } from './styles/GlobalStyle';
+import Routes from './Routes';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+const App = () => {
+  const [themeName, setThemeName] = useState<ThemeName>(
+    localStorage.getItem('@aztheme') === 'dark' ? 'dark' : 'light'
   );
-}
+  const currentTheme = themes[themeName];
+  return (
+    <ApolloProvider client={client}>
+      <BrowserRouter>
+        <ThemeProvider theme={{ mode: 'ccad', withMode: currentTheme }}>
+          <GlobalStyle />
+          <Routes theme={themeName} onChange={setThemeName} />
+        </ThemeProvider>
+      </BrowserRouter>
+    </ApolloProvider>
+  );
+};
 
 export default App;

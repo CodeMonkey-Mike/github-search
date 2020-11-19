@@ -2,10 +2,9 @@ import { ApolloLink, ApolloClient, InMemoryCache } from '@apollo/client';
 import { HttpLink } from '@apollo/client/link/http';
 import { API, AUTH_TOKEN } from '../configs';
 
-
 const cache = new InMemoryCache({});
 
-const link = ApolloLink.from([ 
+const link = ApolloLink.from([
   new HttpLink({
     uri: `${API.URL}${API.SUFFIX}`,
     // For server with deifferent domain use "include"
@@ -13,7 +12,7 @@ const link = ApolloLink.from([
   }),
 ]);
 
-const request = async (operation: any) => { 
+const request = async (operation: any) => {
   operation.setContext({
     headers: {
       authorization: AUTH_TOKEN,
@@ -25,6 +24,4 @@ const client = new ApolloClient({
   cache,
 });
 
-export {
-  client,
-}
+export { client };
