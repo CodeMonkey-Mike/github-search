@@ -12,7 +12,7 @@ const List = ({ loading, children }: LayoutProps) => {
     <ListContainer data-testid="list">
       {loading ? (
         <>
-          <Grid>
+          <Grid data-testid="loading">
             {' '}
             <GridCell span="16">
               <Skeleton count={4} />

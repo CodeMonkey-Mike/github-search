@@ -31,14 +31,14 @@ export const ChevronRight = ({ fill, ...props }: any) => {
         fill="none"
         stroke="currentColor"
         strokeMiterlimit="10"
-        stroke-width="32"
+        strokeWidth="32"
       />
       <path
         fill="none"
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="32"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="32"
         d="M216 352l96-96-96-96"
       />
     </svg>

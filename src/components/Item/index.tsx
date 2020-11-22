@@ -35,7 +35,7 @@ const Item = ({ data }: LayoutProps) => {
   return (
     <>
       {data.map((item: IItem) => (
-        <ItemContainer key={item.id} data-testid={`search-item${item.id}`}>
+        <ItemContainer key={item.id} data-testid={`search-item-${item.id}`}>
           <Grid
             {...{
               gridColumnGap: '0',

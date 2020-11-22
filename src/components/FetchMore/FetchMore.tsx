@@ -29,6 +29,12 @@ export const FetchMore = ({
   fetchMore: () => void;
 }) => (
   <Instance {...props}>
-    {loading ? <img src={Loader} alt="Loading" /> : <Button onClick={fetchMore}>Load more</Button>}
+    {loading ? (
+      <img src={Loader} alt="Loading" data-testid="img-loading" />
+    ) : (
+      <Button data-testid="button-load-more" onClick={fetchMore}>
+        Load more
+      </Button>
+    )}
   </Instance>
 );
