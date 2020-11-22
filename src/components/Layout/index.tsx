@@ -2,6 +2,7 @@ import React from 'react';
 import { Layout } from './style';
 import { ThemeName } from '../../styles/themes';
 import { Container } from '../../styles/Container';
+import { Header } from '../';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -16,6 +17,7 @@ const Main = ({ children, themeName, setThemeName }: LayoutProps) => {
   };
   return (
     <Layout id="layout" data-testid="layout">
+      <Header onChangeTheme={toggleTheme} />
       <Container>{children}</Container>
     </Layout>
   );

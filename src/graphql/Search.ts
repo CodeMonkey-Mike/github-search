@@ -6,12 +6,17 @@ export const SEARCH = gql`
       repositories(last: 100, isLocked: false) {
         totalCount
         nodes {
-          createdAt
+          id
           description
           name
           url
-          viewerPermission
-          id
+          forkCount
+          stargazerCount
+          primaryLanguage {
+            color
+            id
+            name
+          }
         }
       }
     }
